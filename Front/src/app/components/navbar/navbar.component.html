@@ -1,0 +1,37 @@
+<br><br><br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">Sucursales</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul *ngIf="token" class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-bottom: 2px; align-items: center; ">
+          <li class="nav-item" style="background-color: aqua; border-radius: 40%;">
+            <a class="nav-link active" aria-current="page" routerLink="/home" style="color: White;">Home</a>
+          </li>
+          <li class="nav-item" style="background-color: aqua; border-radius: 40%;">
+            <a class="nav-link active" aria-current="page" style="color: White;">Agregar productos</a>
+          </li>
+          <li class="nav-item" style="background-color: aqua; border-radius: 40%;">
+            <a class="nav-link active" aria-current="page" style="color: White;">Agregar sucursal</a>
+          </li>
+          <li class="nav-item" style="background-color: aqua; border-radius: 40%;">
+            <a routerLink="/home" (click)="logOut()" class="nav-link active" aria-current="page" style="color: White;">Cerrar Sesion</a>
+          </li>
+        </ul>
+        <ul *ngIf="!token" class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-bottom: 2px; align-items: center; "> 
+          <li class="nav-item" style="background-color: aqua; border-radius: 40%;">
+            <a class="nav-link active" aria-current="page" routerLink="/login" style="color: White;">Login</a>
+          </li>
+          <li class="nav-item" style="background-color: aqua; border-radius: 40%;">
+            <a class="nav-link active" aria-current="page" routerLink="/register" style="color: White;">Register</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,37 @@
+<br><br><br><br><br><br>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+        <h1>Register</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="saveEmpresa(register)" #register="ngForm">
+      <span *ngIf="!name.valid && name.touched" class="requiredField">
+        Required field
+      </span>
+      <input type="text" [(ngModel)]="empresa.name" id="empresa" #name="ngModel" class="fadeIn second" name="empresa" placeholder="Nombre de la empresa" required>
+      <span *ngIf="!tipoEmpresa.valid && tipoEmpresa.touched" class="requiredField">
+        Required field
+      </span>
+      <input type="text" [(ngModel)]="empresa.type" id="tipoEmpresa" #tipoEmpresa="ngModel" class="fadeIn second" name="tipoEmpresa" placeholder="Tipo de empresa" required>
+      <span *ngIf="!emailEmpresa.valid && emailEmpresa.touched" class="requiredField">
+        Required field
+      </span>
+      <input type="text" [(ngModel)]="empresa.email" id="emailEmpresa" #emailEmpresa="ngModel" class="fadeIn second" name="emailEmpresa" placeholder="Email de la empresa" required>
+      <span *ngIf="!telefonoEmpresa.valid && telefonoEmpresa.touched" class="requiredField">
+        Required field
+      </span>
+      <input type="text" [(ngModel)]="empresa.phone" id="telefonoEmpresa" #telefonoEmpresa="ngModel" class="fadeIn second" name="telefonoEmpresa" placeholder="Telefono de la empresa" required>
+      <span *ngIf="!password.valid && password.touched" class="requiredField">
+        Required field
+      </span>
+      <input type="password" [(ngModel)]="empresa.password" autocomplete="off" id="password" #password="ngModel" class="fadeIn third" name="password" placeholder="password" required>
+      <button [disabled]="!register.valid" type="submit" class="fadeIn fourth"> Register </button>
+      <input type="button" class="fadeIn fourth" routerLink="/login" value="Login">
+    </form>
+  </div>
+</div>
