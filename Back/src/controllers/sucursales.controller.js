@@ -88,3 +88,15 @@ exports.getSucursales = async(req, res)=>{
     }
 }
 
+
+exports.getSucuId = async(req, res)=>{
+    try{
+        const sucursalId = req.params.id;
+        const sucu = await Sucursal.findOne({_id: sucursalId});
+        return res.send({sucu});
+    }catch(err){
+        console.log(err);
+        return res.status(500).send({err, message: 'Error getting sucu'});
+    }
+}
+
