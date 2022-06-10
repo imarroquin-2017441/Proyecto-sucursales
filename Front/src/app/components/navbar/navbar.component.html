@@ -6,8 +6,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul *ngIf="token" class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-bottom: 5px; align-items: center; padding-left: 5px;">
-          <li class="nav-item" style=" border-radius: 40%; padding: 3px;">
+          <li class="nav-item" style=" border-radius: 50%; padding: 3px;">
             <a  class="btn btn-danger" aria-current="page" routerLink="/home" style="color: White;">Home</a>
+          </li>
+          <li class="nav-item" style=" border-radius: 40%; padding: 3px;">
+            <a  class="btn btn-danger" aria-current="page" routerLink="/sucursales" style="color: White;">Sucursales</a>
+          </li>
+          <li class="nav-item" style=" border-radius: 40%; padding: 3px;">
+            <a  class="btn btn-danger" aria-current="page" routerLink="/productos" style="color: White;">Productos</a>
           </li>
           <li class="nav-item" style=" border-radius: 40%;">
             <a class="btn btn-danger" aria-current="page" style="color: White;">Agregar productos</a>
@@ -16,7 +22,7 @@
             <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-current="page" style="color: White;">Agregar sucursal</a>
           </li>
           <li class="nav-item" style=" border-radius: 40%;">
-            <a routerLink="/home" (click)="logOut()" class="btn btn-danger" aria-current="page" style="color: White;">Cerrar Sesion</a>
+            <a routerLink="/login" (click)="logOut()" class="btn btn-danger" aria-current="page" style="color: White;">Cerrar Sesion</a>
           </li>
         </ul>
         <ul *ngIf="!token" class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-bottom: 2px; align-items: center; "> 

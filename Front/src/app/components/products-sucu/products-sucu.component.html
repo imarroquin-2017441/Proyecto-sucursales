@@ -1,0 +1,15 @@
+<body>
+<app-navbar></app-navbar>
+<div class="text-center row">
+  <div *ngFor="let productsS of productsSucu " class="card me-3 mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h4 class="card-title">Producto: {{productsS.name}}</h4>
+      <p class="card-text">stock: {{productsS.stock}}</p>
+      <p class="card-text">Sales: {{productsS.sales}}</p>
+      <button class="btn btn-danger mb-2">Eliminar producto</button>
+      <button class="btn btn-warning mb-2">Más vendidos</button>
+      <button class="btn btn-primary mb-2">Más stock</button>
+    </div>
+  </div>
+</div>
+</body>

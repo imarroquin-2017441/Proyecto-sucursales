@@ -1,0 +1,15 @@
+<body>   
+    <app-navbar></app-navbar>
+      <div class="text-center row">
+        <div *ngFor="let productosEmpresa of productosEmpresa" class="card me-3 mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h4 class="card-title">{{productosEmpresa.name}}</h4>
+            <p class="card-text">{{productosEmpresa.proveedor}}</p>
+            <p class="card-text">{{productosEmpresa.stcok}}</p>
+            <button class="btn btn-danger mb-2">Eliminar sucursal</button>
+            <button class="btn btn-warning mb-2">Editar sucursal</button>
+            <button class="btn btn-primary">Enviar a sucursal</button>
+          </div>
+        </div>
+      </div>
+</body> 

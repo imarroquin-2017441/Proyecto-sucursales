@@ -11,5 +11,6 @@ api.post('/sendProduct', mdAuth.ensureAuth, productEmpres.sendProduct);
 api.put('/updateProducto/:id', mdAuth.ensureAuth, productEmpres.updateProduct);
 api.delete('/deleteProducto/:id', mdAuth.ensureAuth, productEmpres.deleProduct);
 api.get('/getProductos', mdAuth.ensureAuth, productEmpres.getProductos);
+api.get('/getProducId/:id', mdAuth.ensureAuth, productEmpres.getProductsId);
 
 module.exports = api;

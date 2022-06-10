@@ -160,3 +160,14 @@ exports.getProductos = async(req, res)=>{
         return res.status(500).send({message: 'Error buscando productos'});
     }
 }
+
+exports.getProductsId = async(req, res)=>{
+    try{
+        const ProductsId = req.params.id;
+        const produ = await ProductEmpresa.findOne({_id: ProductsId});
+        return res.send({produ});
+    }catch(err){
+        console.log(err);
+        return res.status(500).send({err, message: 'Error getting product'});
+    }
+}
