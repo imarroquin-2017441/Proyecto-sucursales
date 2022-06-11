@@ -21,8 +21,8 @@ export class ProductsEmpresaService {
     return this.http.get(environment.baseUrl + 'productoEmpresa/getProductos', {headers: this.httpOptions})
   }
 
-  getgetProducId(id:string){
-    return this.http.get(environment.baseUrl + 'productoEmpresa/getProductos/'+ id, {headers: this.httpOptions});
+  getProducId(id:string){
+    return this.http.get(environment.baseUrl + 'productoEmpresa/getProducId/'+ id, {headers: this.httpOptions});
   }
 
   saveProduct(params:{}){
@@ -33,7 +33,11 @@ export class ProductsEmpresaService {
     return this.http.delete(environment.baseUrl + 'productoEmpresa/deleteProducto/' + id, {headers: this.httpOptions});
   }
 
-  updateProduct(id:string, params:{}){
+  updateProducto(id:string, params:{}){
     return this.http.put(environment.baseUrl + 'productoEmpresa/updateProducto/' + id, params, {headers: this.httpOptions})
   }
+
+  sendProduct(params:{}){
+    return this.http.post(environment.baseUrl + 'productoEmpresa/sendProduct', params, {headers:this.httpOptions})
+  };
 }

@@ -5,11 +5,109 @@
           <div class="card-body">
             <h4 class="card-title">{{productosEmpresa.name}}</h4>
             <p class="card-text">{{productosEmpresa.proveedor}}</p>
-            <p class="card-text">{{productosEmpresa.stcok}}</p>
-            <button class="btn btn-danger mb-2">Eliminar sucursal</button>
-            <button class="btn btn-warning mb-2">Editar sucursal</button>
-            <button class="btn btn-primary">Enviar a sucursal</button>
+            <p class="card-text">{{productosEmpresa.stock}}</p>
+            <button (click)="deleteProduct(productosEmpresa._id)" class="btn btn-danger mb-2">Eliminar sucursal</button>
+            <button (click)="getProdu(productosEmpresa._id)" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#updateModalPro">Editar sucursal</button>
+            <button (click)="getProdu(productosEmpresa._id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalSend">Enviar a sucursal</button>
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="exampleModalEmpresa" tabindex="-1" aria-labelledby="exampleModalEmpresaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalEmpresaLabel">Agregar producto</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input [(ngModel)]="productosM.name" name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="proveedor" class="form-label">proveedor</label>
+                  <input [(ngModel)]="productosM.proveedor" name="proveedor" type="text" class="form-control" id="proveedor">
+                </div>
+                <div class="mb-3">
+                  <label for="stock" class="form-label">stock</label>
+                  <input [(ngModel)]="productosM.stock" name="stock" type="number" class="form-control" id="stock">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="saveProduct()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal fade" id="updateModalPro" tabindex="-1" aria-labelledby="updateModalProLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateModalProLabel">Actualizar productos</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form *ngIf="productosEmpresa"  >
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input [(ngModel)]="this.productosUpdate.name" name="name" type="text" class="form-control" id="name">
+                </div>
+                <div class="mb-3">
+                  <label for="proveedor" class="form-label">proveedor</label>
+                  <input [(ngModel)]="this.productosUpdate.proveedor" name="proveedor" id="proveedor" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="stock" class="form-label">stock</label>
+                  <input [(ngModel)]="this.productosUpdate.stock" name="stock" type="number" class="form-control" id="stock">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="updateProducto()"  data-bs-dismiss="modal" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModalSend" tabindex="-1" aria-labelledby="exampleModalEmpresaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalEmpresaLabel">Enviar producto</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form #sendProductForm = "ngForm"> 
+                <div class="mb-3">
+                  <label for="stock" class="form-label">cantidad</label>
+                  <input [(ngModel)]="productoSucursal.stock" name="stock" type="number" class="form-control" id="stock" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label">producto</label>
+                  <input [(ngModel)]="productoSucursal.name" name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                
+                <div class="box form-group" >
+                  <label for="direccion">Sucursal</label>
+                  <select [(ngModel)]="productoSucursal.sucursal" name="direccion" class="form-select" aria-label="Default select example">
+                    <option value="" disabled >Menú de Selección</option>
+                    <option *ngFor="let sucursalM of sucursal" value="{{sucursalM._id}}">{{sucursalM.name}}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="sendProduct(sendProductForm)" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 </body> 
