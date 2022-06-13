@@ -13,6 +13,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
 import { ProductsEmpresaComponent } from './components/product-e/product-e.component';
 import { ProductsSucuComponent } from './components/products-sucu/products-sucu.component';
+import { ChartsModule } from '@rinminase/ng-charts';
+import { ProductGraficComponent } from './components/product-grafic/product-grafic.component';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +27,15 @@ import { ProductsSucuComponent } from './components/products-sucu/products-sucu.
     NotFoundComponent,
     SucursalesComponent,
     ProductsEmpresaComponent,
-    ProductsSucuComponent
+    ProductsSucuComponent,
+    ProductGraficComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

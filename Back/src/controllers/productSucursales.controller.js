@@ -18,6 +18,30 @@ exports.getProducts = async (req, res)=>{
     }
 }
 
+exports.getProductsGrafic = async (req, res)=>{
+    try {
+        const idSucu = req.params.id;
+        const products = await ProductSucursal.find({sucursal:idSucu})
+        .lean();
+        return res.send({message: 'Products found:', products})
+    } catch (err) {
+        console.log(err);
+        return err;
+    }
+}
+
+
+exports.getProduct = async (req, res)=>{
+    try {
+        const idProduct = req.params.id;
+        const product = await ProductSucursal.findOne({_id:idProduct})
+        return res.send({product})
+    } catch (err){
+        console.log(err);
+        return err;
+    }
+}
+
 exports.searchProduct = async (req, res)=>{
     try {
         const params = req.body;
@@ -42,7 +66,7 @@ exports.mostSales = async(req, res)=>{
         const productsMostSales = await ProductSucursal.find()
             .sort({sales: -1})
             .lean();
-        return res.send({products: productsMostSales});
+        return res.send({productsMostSales});
     }catch(err){
         console.log(err);
         return res.status(500).send({message: 'Error buscando productos más vendidos'});
@@ -54,7 +78,7 @@ exports.mostStock = async(req, res)=>{
         const productsMostStock = await ProductSucursal.find()
             .sort({stock: -1})
             .lean();
-        return res.send({products: productsMostStock});
+        return res.send({productsMostStock});
     }catch(err){
         console.log(err);
         return res.status(500).send({message: 'Error buscando productos con mas stock'});

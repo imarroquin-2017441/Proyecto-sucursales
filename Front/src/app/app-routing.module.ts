@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'sucursales', component: SucursalesComponent},
   {path: 'productos', component: ProductsEmpresaComponent},
   {path: 'productosSucu', component: ProductsSucuComponent},
+  {path: 'productosSucu/:id', component: ProductsSucuComponent},
   {path: '**', component: NotFoundComponent}
 ];
 

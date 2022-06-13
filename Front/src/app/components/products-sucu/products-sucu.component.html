@@ -6,10 +6,122 @@
       <h4 class="card-title">Producto: {{productsS.name}}</h4>
       <p class="card-text">stock: {{productsS.stock}}</p>
       <p class="card-text">Sales: {{productsS.sales}}</p>
-      <button class="btn btn-danger mb-2">Eliminar producto</button>
-      <button class="btn btn-warning mb-2">Más vendidos</button>
-      <button class="btn btn-primary mb-2">Más stock</button>
+      <button class="btn btn-danger mb-2" (click)="getProductSucu(productsS._id)" data-bs-toggle="modal" data-bs-target="#agregarVenta">Vender Producto</button>
+      <button class="btn btn-warning mb-2" (click)="mostSales()" data-bs-toggle="modal" data-bs-target="#exampleModal">Más vendidos</button>
+      <button class="btn btn-primary mb-2" (click)="mostStock()" data-bs-toggle="modal" data-bs-target="#masStock">Más stock</button>
     </div>
   </div>
 </div>
+
+
+<!-- Mas Vendido -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Más Vendidos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let productsS of productsSucu ">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">name</th>
+                <th scope="col">sales</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{productsS.name}}</td>
+                <td>{{productsS.sales}}</td>
+              </tr>
+            </tbody>
+          </table>  
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mas Stock -->
+<div class="modal fade" id="masStock" tabindex="-1" aria-labelledby="masStockLabel" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Más Stock</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let productsS of productsSucu">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{productsS.name}}</td>
+                <td>{{productsS.stock}}</td>
+              </tr>
+            </tbody>
+          </table>  
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Simular Venta -->
+<div class="modal fade" id="agregarVenta" tabindex="-1" aria-labelledby="agregarVentaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarVentaLabel">Vender Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Cantidad a Vender</label>
+            <input [(ngModel)]="this.sale" name="sale" type="number" class="form-control" id="sale">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="agregarVenta()"  data-bs-dismiss="modal" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <br />
+  <div class="row justify-content-center align-items-center">
+    <div class="col-xl-7">
+      <div class="card mb-7">
+
+        <div class="card-footer p-4 pt-0 bg-transparent border-top-20" height="300000px">
+          <div style="display: block">
+            <canvas baseChart chartType="bar" [datasets]="chartData1" [colors]="chartColors" [labels]="chartLabels1"
+              [options]="chartOptions1" [plugins]="chartPlugins1" [legend]="chartLegend1">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
